@@ -1,6 +1,6 @@
-# Virtualization Basics Tasks (Hyper-V or VirtualBox or any hypervisor of your choice) - 8 Points
+# Virtualization Basics Tasks (Hyper-V or VirtualBox or any hypervisor of your choice) - 5 Points
 
-> We’ll use the **latest Ubuntu Desktop LTS (24.04.x “Noble Numbat”)** ISO.  
+> We’ll use the **latest Ubuntu Desktop LTS (24.04.x)** ISO.  
 > Download from the official page: https://ubuntu.com/download/desktop 
 ---
 

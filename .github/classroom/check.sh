@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# Checks 12 tasks, 1 point each. Prints final "SCORE: X/12".
-# Safe: does not stop/remove students' named containers; uses a temporary one for stop/rm checks.
+# Checks 12 tasks total:
+# - Tasks 1–10 are scored, 1 point each (max 10).
+# - Tasks 11–12 are pass/fail checks (0 points) to verify stop/rm.
+
 
 set -Eeuo pipefail
 
 points=0
-max=12
+max=10
 
 ok()   { echo "✅ $*"; }
 warn() { echo "⚠️  $*"; }
@@ -131,36 +133,33 @@ else
   err "Task 10: docker images failed"
 fi
 
-# Task 11: ability to stop a running container (tested with temp one)
+# Task 11 (no points): ability to stop a running container (tested with temp one)
 tmpc="check-stop-$$"
 docker run -d --name "$tmpc" alpine /bin/sh -c "sleep 60" >/dev/null 2>&1 || true
 if docker ps --format '{{.Names}}' | grep -qx "$tmpc"; then
   if docker stop "$tmpc" >/dev/null 2>&1; then
-    ok "Task 11: docker stop works (tested with temp container)"
-    points=$((points+1))
+    ok "Task 11 (check): docker stop works (tested with temp container)"
   else
-    err "Task 11: docker stop failed"
+    err "Task 11 (check): docker stop failed"
   fi
 else
   # If temp container didn't start (no alpine?), try to pull and retry once
   docker pull alpine >/dev/null 2>&1 || true
   docker run -d --name "$tmpc" alpine /bin/sh -c "sleep 60" >/dev/null 2>&1 || true
   if docker stop "$tmpc" >/dev/null 2>&1; then
-    ok "Task 11: docker stop works (after pulling alpine)"
-    points=$((points+1))
+    ok "Task 11 (check): docker stop works (after pulling alpine)"
   else
-    err "Task 11: docker stop failed"
+    err "Task 11 (check): docker stop failed"
   fi
 fi
 
-# Task 12: ability to remove a container (the same temp one)
+# Task 12 (no points): ability to remove a container (the same temp one)
 if docker rm "$tmpc" >/dev/null 2>&1; then
-  ok "Task 12: docker rm works (temp container removed)"
-  points=$((points+1))
+  ok "Task 12 (check): docker rm works (temp container removed)"
 else
   # ensure cleanup even if previous step failed
   docker rm -f "$tmpc" >/dev/null 2>&1 || true
-  err "Task 12: docker rm failed"
+  err "Task 12 (check): docker rm failed"
 fi
 
 echo "----------------------------------------"

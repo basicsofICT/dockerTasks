@@ -1,10 +1,10 @@
-# Docker Tasks in **GitHub Codespaces** 
+# Docker Tasks in **GitHub Codespaces** - 10 Points
 
 - Work **in a GitHub Codespace**. In this repo, Docker runs **inside** the dev container via Docker-in-Docker (DinD). This means Docker is already pre-installed and ready to use.
 
 - First study [Docker Basics](https://dipaish.github.io/OS22/index.html) properly. I recommend completing all the tasks from the learning materials in the same environment to become familiar with the Docker environment before attempting the practical exercises below.
 
-- You can check your score yourself. You will earn a total of 12 points from the tasks.
+- You can check your score yourself. You will earn a total of 10 points from the tasks.
 
 - Remember to frequently commit and push the changes [12. 🚀 Commit and push](#12--commit-and-push)
 
