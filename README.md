@@ -69,7 +69,6 @@ ii.	Click **Open in browser** to view the simple website.
 
 ## 11. Run the check.sh script and know your score
 ```bash
-# it is always important to provide executable permission for the script to run that is what we do below and then run the script
 chmod +x .github/classroom/check.sh
 .github/classroom/check.sh > result.txt
 
