@@ -20,7 +20,7 @@
 
 ## 2) Get the OS Image (Ubuntu Desktop 24.04 LTS)
 
-1. Download **Ubuntu 24.04.x LTS Desktop ISO** (“Noble Numbat”).  
+1. Download **Ubuntu 24.04.x LTS Desktop ISO**.  
    - Primary page: ubuntu.com/download/desktop.  
 2. Verify the file finishes downloading (≈ 5–6 GB).  
 
