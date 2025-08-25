@@ -2,7 +2,7 @@
 
 In this task, you will create a virtual machine and install Ubuntu 24.04 LTS using the official Desktop ISO image.
 
-> You can download thee **latest Ubuntu Desktop LTS (24.04)** ISO.   from the official page: https://ubuntu.com/download/desktop 
+> You can download thee **latest Ubuntu Desktop LTS (24.04)** ISO image from the official page: https://ubuntu.com/download/desktop 
 ---
 
 ## 1) Install a Virtualization Tool
