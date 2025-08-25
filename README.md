@@ -31,19 +31,19 @@ docker version
 
 ---
 
-## 4. Use Docker run command to run a docker container based on alpine image and get access to the container shell.
+## 4. Use Docker run command to run a docker container based on alpine image, the name of the container should be alpine-it-demo and get access to the container shell.
 i.	docker run -it alpine /bin/sh
 
-ii.	Use mkdir command to make some directories. 
+ii.	Use mkdir command to make some directories: /lab/dir1 /lab/dir2
 
-iii.	Use exit command to exit from the container’s shell. 
+iii. Use exit command to exit from the container’s shell. 
 
 
 ## 5. Run a static website in a container using an existing image “static-site”. 
 
 i.	docker run --name static-site-2 -e AUTHOR="Your Name" -d -p 8888:80 dockersamples/static-site
 
-ii.	Type localhost:8888 in your browser.
+ii.	Click Open in browser to view the simple website.
 
 ---
 
