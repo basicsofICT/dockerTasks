@@ -32,9 +32,9 @@ docker version
 ---
 
 ## 4. Use Docker run command to run a docker container based on alpine image, the name of the container should be alpine-it-demo and get access to the container shell.
-i.	docker run -it alpine /bin/sh
+i.	docker run -it alpine /bin/sh (hint update this and include the name of the container as alpine-it-demo)
 
-ii.	Use mkdir command to make some directories: /lab/dir1 /lab/dir2
+ii.	Use mkdir command to make directories: /lab/dir1 /lab/dir2
 
 iii. Use exit command to exit from the container’s shell. 
 
@@ -84,8 +84,8 @@ cat result.txt
 >> Note 
 
 - If you’re not satisfied with your score, you may correct any mistakes you’ve made. You can try as many times as you like before the deadline. The score you have at the deadline will be your final score. I will check it from your repository and post it in Canvas. 
-- After making the corrections, **re-run Task 14** again and check your score. 
-- **Always remember to commit and push the changes you have made by doing the Task no. 15 before closing the GitHub Codespace. You need to do this frequently that is every time you work on the tasks, remember to commit and push**
+- After making the corrections, **re-run Task 11** again and check your score. 
+- **Always remember to commit and push the changes you have made by doing the Task no. 12 before closing the GitHub Codespace. You need to do this frequently that is every time you work on the tasks, remember to commit and push**
 
 
 ## 12. 🚀 Commit and push
