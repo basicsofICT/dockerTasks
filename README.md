@@ -1,18 +1,15 @@
 # Docker Tasks in **GitHub Codespaces** - 10 Points
 
-- Work **in a GitHub Codespace**. In this repo, Docker runs **inside** the dev container via Docker-in-Docker (DinD). This means Docker is already pre-installed and ready to use.
+- In this Codespace, a Docker daemon runs inside the workspace container . The docker CLI is preinstalled and connected. You can open the Terminal and run commands right away.
 
-- First study [Docker Basics](https://dipaish.github.io/OS22/index.html) properly. I recommend completing all the tasks from the learning materials in the same environment to become familiar with the Docker environment before attempting the practical exercises below.
+- First study [Docker Basics](https://dipaish.github.io/OS22/index.html) properly. I recommend completing all the tasks from the learning materials in the same environment to become familiar with the Docker environment before attempting the practical exercises below. ***You are also free to install Docker in your own personal device if you wish to.***
 
-- You can check your score yourself. You will earn a total of 10 points from the tasks.
+- You can check your score yourself. You can get a total of 10 points from the tasks.
 
-- Remember to frequently commit and push the changes [12. 🚀 Commit and push](#12--commit-and-push)
+- Remember to frequently commit and push the changes [12.Commit and push](#12--commit-and-push)
 
 ---
 
-***Do not edit check.sh***
-
-***Good luck 🚀***
 ## 1. Verify Docker in the Codespace
 
 ```bash
@@ -32,7 +29,7 @@ docker version
 ---
 
 ## 4. Use Docker run command to run a docker container based on alpine image, the name of the container should be alpine-it-demo and get access to the container shell.
-i.	docker run -it alpine /bin/sh (hint update this and include the name of the container as alpine-it-demo)
+i.	docker run -it alpine /bin/sh ***(hint update this and include the name of the container as alpine-it-demo)***
 
 ii.	Use mkdir command to make directories: /lab/dir1 /lab/dir2
 
@@ -41,9 +38,9 @@ iii. Use exit command to exit from the container’s shell.
 
 ## 5. Run a static website in a container using an existing image “static-site”. 
 
-i.	docker run --name static-site-2 -e AUTHOR="Your Name" -d -p 8888:80 dockersamples/static-site
+i.	docker run --name static-site-2 -e AUTHOR="Your Name" -d -p 8888:80 dockersamples/static-site ***Check and read about the static-site image from DockerHub.***
 
-ii.	Click Open in browser to view the simple website.
+ii.	Click **Open in browser** to view the simple website.
 
 ---
 
@@ -72,6 +69,7 @@ ii.	Click Open in browser to view the simple website.
 
 ## 11. Run the check.sh script and know your score
 ```bash
+# it is always important to provide executable permission for the script to run that is what we do below and then run the script
 chmod +x .github/classroom/check.sh
 .github/classroom/check.sh > result.txt
 
@@ -83,14 +81,14 @@ cat result.txt
 
 >> Note 
 
-- If you’re not satisfied with your score, you may correct any mistakes you’ve made. You can try as many times as you like before the deadline. The score you have at the deadline will be your final score. I will check it from your repository and post it in Canvas. 
+- If you’re not satisfied with your score, you may correct any mistakes you’ve made. You can try as many times as you like before the deadline. The score you have at the deadline will be your final score. ***I will check it from your repository.***
 - After making the corrections, **re-run Task 11** again and check your score. 
 - **Always remember to commit and push the changes you have made by doing the Task no. 12 before closing the GitHub Codespace. You need to do this frequently that is every time you work on the tasks, remember to commit and push**
 
 
-## 12. 🚀 Commit and push
+## 12. Commit and push
 ```bash
 git add .
-git commit -m "Complete 15 CLI tasks"
+git commit -m "Completed 11 docker tasks"
 git push
 ```
