@@ -6,7 +6,7 @@
 
 - You can check your score yourself. You can get a total of 10 points from the tasks.
 
-- Remember to frequently commit and push the changes [12.Commit and push](#12--commit-and-push)
+- Remember to frequently commit and push the changes [12.Commit and push](#12-commit-and-push)
 
 ---
 
