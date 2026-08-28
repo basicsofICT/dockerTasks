@@ -151,12 +151,12 @@ else
   err "Task 13: outputs/my-first-container-output.txt missing or empty"
 fi
 
-# Task 14: data/note.txt exists and is not empty (bind mount persistence)
-if [ -s data/note.txt ]; then
-  ok "Task 14: data/note.txt exists (bind mount persisted data)"
+# Task 14: bind-mounted website persists content on the host (site/index.html + a running nginx container)
+if [ -s site/index.html ] && docker ps --format '{{.Image}}' | grep -qx 'nginx'; then
+  ok "Task 14: site/index.html exists and an nginx container is running"
   points=$((points+1))
 else
-  err "Task 14: data/note.txt missing or empty"
+  err "Task 14: site/index.html missing/empty or no running nginx container found"
 fi
 
 # Task 15: ability to stop and remove a container (tested with a temp one)

@@ -213,17 +213,46 @@ docker run --name my-first-container my-first-image | tee outputs/my-first-conta
 
 ## 14. Persist data with a bind mount
 
-**Concept: using volumes and bind mounts to make data outlive a container.** Normally, when a container is removed, everything it wrote is gone. A **bind mount** maps a folder on your host into the container, so any file written there actually lives on your host filesystem and survives container removal. This is essential for databases, logs, and any data you want to keep.
+**Concept: using a bind mount to make data outlive a container.** Normally, when you remove a container, everything it wrote is gone. A **bind mount** connects a folder on your host to a folder inside the container, so they are actually the *same* folder. Any file you create or edit on either side instantly shows up on the other, and it stays on your host even after the container is deleted.
+
+**Step 1:** Create a small website folder on your host with a starting page:
 
 ```bash
-mkdir -p data
-docker run --rm -v "$(pwd)/data:/data" alpine sh -c "echo 'This data survives even after the container is removed!' > /data/note.txt"
-cat data/note.txt
+mkdir -p site
+echo "<h1>Version 1: created before the bind mount</h1>" > site/index.html
 ```
 
-Notice that the `--rm` flag automatically removes the container right after it exits, yet `data/note.txt` is still there on your host. That's the whole point of a bind mount.
+**Step 2:** Run an `nginx` web server container, bind-mounting your `site` folder into the folder nginx serves files from:
 
-**✅ Task 14 (1 point):** `data/note.txt` exists and is not empty.
+```bash
+docker run -d --name bind-mount-site -p 8080:80 -v "$(pwd)/site:/usr/share/nginx/html" nginx
+```
+
+Open **http://localhost:8080** (or click the port 8080 notification). You should see "Version 1".
+
+**Step 3:** Now edit `site/index.html` directly on your host, for example right in the VS Code editor, and change the text:
+
+```html
+<h1>Version 2: edited directly on the host, no rebuild needed!</h1>
+```
+
+Save the file, then refresh your browser. The website updates immediately, with no restart and no rebuild, because nginx is reading straight from your bind-mounted folder.
+
+**Step 4:** Prove the data survives even when the container is gone. Remove the container completely:
+
+```bash
+docker rm -f bind-mount-site
+```
+
+Then create a **brand-new** container, bind-mounting the exact same folder:
+
+```bash
+docker run -d --name bind-mount-site-2 -p 8080:80 -v "$(pwd)/site:/usr/share/nginx/html" nginx
+```
+
+Refresh **http://localhost:8080** again. Your "Version 2" content is still there, even though `bind-mount-site` no longer exists. The content never lived inside the container. It lived in `site/index.html` on your host the whole time.
+
+**✅ Task 14 (1 point):** `site/index.html` exists on your host, and a container using it as a bind mount is running.
 
 ---
 
