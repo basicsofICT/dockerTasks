@@ -9,7 +9,7 @@ This assignment is a hands-on introduction to Docker. You don't need any prior D
 
 ---
 
-## 🧠 Docker Concepts You Need First
+##  Docker Concepts You Need First
 
 Before you start, it helps to know these four terms. You will meet all of them in the tasks below:
 
@@ -19,8 +19,6 @@ Before you start, it helps to know these four terms. You will meet all of them i
 | **Container** | A running (or stopped) **instance** of an image. Think of it like a class (image) versus an object (container). You can create many containers from the same image, and each one is isolated from the others and from your host machine. |
 | **Dockerfile** | A text file with step-by-step instructions (`FROM`, `RUN`, `CMD`, ...) that tells Docker how to **build your own custom image**. |
 | **Volume / Bind mount** | Containers are normally *ephemeral*, meaning that when you delete a container, its filesystem changes are gone. A volume/bind mount is a folder shared between your host and the container so data can **persist** even after the container is removed. |
-
-Keep this table in mind. Each task below calls out which concept it teaches.
 
 ---
 
@@ -245,6 +243,25 @@ docker rm cleanup-demo
 
 ---
 
+## Optional Extra (Not Graded): Explore a New Docker Image
+
+This task is purely for your own additional learning. It carries **no points** and is **not checked** by `check.sh` or graded in any way.
+
+**Concept: exploring the Docker Hub ecosystem.** So far you've only used a handful of images picked for you. Docker Hub hosts hundreds of thousands of images for almost every purpose. Being able to find, understand, and safely try out a new image is a core Docker skill.
+
+**What to do (optional):**
+
+1. Go to [Docker Hub](https://hub.docker.com/) and find a lightweight, official/well-maintained image you haven't used yet in this assignment. Pick something from a category that interests you, for example:
+   - AI / Machine Learning (e.g. a small model-serving or notebook image)
+   - Security (e.g. a vulnerability scanner or network diagnostic tool)
+   - Databases (e.g. `redis`, `postgres`, `mongo`)
+   - Or any other category you find interesting.
+2. Write a short paragraph describing what the image/application does, why it's useful, and why you consider it lightweight (for example, its image size from `docker images`).
+3. Pull and run the image with `docker run`, and confirm it actually starts and works as expected.
+4. Take a screenshot showing it running, just to have a record for yourself.
+
+---
+
 ## 16. Run the check.sh script and know your score
 ```bash
 chmod +x .github/classroom/check.sh
@@ -258,7 +275,7 @@ cat result.txt
 
 >> Note 
 
-- If you’re not satisfied with your score, you may correct any mistakes you’ve made. You can try as many times as you like before the deadline. The score you have at the deadline will be your final score. ***I will check it from your repository.***
+- If you’re not satisfied with your score, you may correct any mistakes you’ve made. You can try as many times as you like.
 - After making the corrections, **re-run Task 16** again and check your score. 
 - **Always remember to commit and push the changes you have made by doing Task 17 before closing the GitHub Codespace. You need to do this frequently. Every time you work on the tasks, remember to commit and push.**
 
